@@ -1,0 +1,180 @@
+/*This section is for Imdex Page*/
+
+/*This is styling the wellComePage section*/
+.wellComePage {
+  height: 100vh;
+  max-width: 1300vw;
+  background-color: #003049;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*This is styling the wellcomeMessage Div*/
+.wellcomeMessage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #003566;
+  width: 500px;
+  height: 350px;
+  border-radius: 20px;
+}
+
+/*This is styling generateHero Button*/
+.generateHero {
+  background-color: #22c55e;
+  color: #fffff5;
+  height: 50px;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.generateHero:hover {
+  border: 2px solid white;
+}
+/*-----*/
+
+/*This is styling the Gif in the Index Page*/
+.gifImage {
+  width: 400px;
+  border-radius: 10px;
+}
+
+/*This is the Home Page*/
+
+/*This is styling the whole body*/
+body {
+  background-color: #8094b5;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0;
+}
+/*______________*/
+
+/*This is styling the NavBar*/
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #283b63;
+}
+
+.titleSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+/*Title Image*/
+.titleSection img {
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+}
+
+/*Title*/
+.title {
+  font-size: 20px;
+  color: white;
+  margin: 5px;
+}
+
+/*Search Bar*/
+.searchBar {
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/*Input Section*/
+.input {
+  width: 250px;
+  height: 35px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 10px;
+}
+
+/*Search Button*/
+.searchButton {
+  width: 100px;
+  height: 35px;
+  font-size: 20px;
+  padding: 0;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #81d2c7;
+}
+
+.searchButton:hover {
+  border: 2px solid black;
+}
+/*____________*/
+
+/*This is where the Main content of the page is being styled*/
+.bodySection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainBody {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 1300px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  gap: 20px;
+  border-radius: 10px;
+}
+.card {
+  width: 300px;
+  height: 450px;
+  background-color: #b1d9d5;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-radius: 1px solid black;
+}
+
+.heroImage img {
+  height: 350px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.hero:hover {
+  color: #023047;
+}
+
+.movieStudio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
