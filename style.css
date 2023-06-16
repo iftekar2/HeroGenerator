@@ -288,3 +288,88 @@ a {
   /*This is styling the Copy Right div in Foother Section*/
   font-size: 18px;
 }
+
+/*Mobile View Section*/
+@media (max-width: 768px) {
+  /*This is Main Section*/
+  .mainSection {
+    width: 425px;
+  }
+
+  .icons img {
+    /*This is styling the Icons*/
+    width: 20px;
+    height: 20px;
+  }
+
+  .title h1 {
+    /*This is styling the Title*/
+    font-size: 50px;
+  }
+
+  .slogan ul {
+    /*This is styling the Slogan Section*/
+    font-size: 12px;
+  }
+
+  /*This is Body Section*/
+  .bodySection {
+    width: 425px;
+    height: 100vh;
+  }
+
+  .description1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    padding-left: 30px;
+  }
+
+  .pokemonDescription1 h1 {
+    /*This is styling Description One H1*/
+    font-size: 22px;
+    width: 380px;
+  }
+
+  .pokemonDescription1 p {
+    /*This is styling Description One P Tag*/
+    width: 380px;
+    font-size: 20px;
+  }
+
+  .description1 img {
+    width: 300px;
+    height: 200px;
+  }
+
+  .description2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+  }
+
+  .pokemonDescription2 h1 {
+    /*This is styling Description One H1*/
+    font-size: 22px;
+    width: 380px;
+  }
+
+  .pokemonDescription2 p {
+    /*This is styling Description One P Tag*/
+    width: 380px;
+    font-size: 20px;
+  }
+
+  .description2 img {
+    width: 300px;
+    height: 200px;
+  }
+
+  .footerSection {
+    margin-bottom: 20px;
+  }
+}
