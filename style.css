@@ -1,180 +1,290 @@
-/*This section is for Imdex Page*/
+* {
+  margin: 0;
+  padding: 0;
+}
 
-/*This is styling the wellComePage section*/
-.wellComePage {
+/*This is Main Section*/
+
+.mainSection {
+  /*This is styling the Main Section*/
+  width: 100%;
   height: 100vh;
-  max-width: 1300vw;
-  background-color: #003049;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #bee9e8;
+}
+
+.icons {
+  /*This is styling the Icon Section*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.icons img {
+  /*This is styling the Icons*/
+  width: 50px;
+  height: 50px;
+}
+
+.title h1 {
+  /*This is styling the Title*/
+  color: #bee9e8ed;
+  font-size: 150px;
+}
+
+.title {
+  /*This is styling the Title Section*/
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/*This is styling the wellcomeMessage Div*/
-.wellcomeMessage {
+.slogan ul {
+  /*This is styling the Slogan Section*/
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  color: white;
-  background-color: #003566;
+  gap: 25px;
+  list-style: none;
+  font-size: 20px;
+}
+
+/*This is the BodySection*/
+
+.bodySection {
+  /*This is styling the BodySection*/
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.description1 {
+  /*This is styling Description One*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1b4965;
+  gap: 20px;
+}
+
+.pokemonDescription1 h1 {
+  /*This is styling Description One H1*/
+  font-size: 30px;
+  margin-bottom: 20px;
+  width: 600px;
+}
+
+.pokemonDescription1 p {
+  /*This is styling Description One P Tag*/
   width: 500px;
-  height: 350px;
+  font-size: 23px;
+}
+
+.description1 img {
+  /*This is styling Description One Image*/
+  width: 500px;
+  height: 300px;
   border-radius: 20px;
 }
 
-/*This is styling generateHero Button*/
-.generateHero {
-  background-color: #22c55e;
-  color: #fffff5;
-  height: 50px;
-  font-size: 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-.generateHero:hover {
-  border: 2px solid white;
-}
-/*-----*/
-
-/*This is styling the Gif in the Index Page*/
-.gifImage {
-  width: 400px;
-  border-radius: 10px;
-}
-
-/*This is the Home Page*/
-
-/*This is styling the whole body*/
-body {
-  background-color: #8094b5;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0;
-}
-/*______________*/
-
-/*This is styling the NavBar*/
-.navBar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  background-color: #283b63;
-}
-
-.titleSection {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-/*Title Image*/
-.titleSection img {
-  height: 60px;
-  width: 60px;
-  cursor: pointer;
-}
-
-/*Title*/
-.title {
-  font-size: 20px;
-  color: white;
-  margin: 5px;
-}
-
-/*Search Bar*/
-.searchBar {
-  margin-right: 50px;
+.description2 {
+  /*This is styling Description Two*/
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-}
-
-/*Input Section*/
-.input {
-  width: 250px;
-  height: 35px;
-  font-size: 20px;
-  border-radius: 5px;
-  border: none;
-  padding-left: 10px;
-}
-
-/*Search Button*/
-.searchButton {
-  width: 100px;
-  height: 35px;
-  font-size: 20px;
-  padding: 0;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  background-color: #81d2c7;
-}
-
-.searchButton:hover {
-  border: 2px solid black;
-}
-/*____________*/
-
-/*This is where the Main content of the page is being styled*/
-.bodySection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mainBody {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 1300px;
+  color: #1b4965;
+  gap: 30px;
   margin-top: 50px;
-  margin-bottom: 20px;
-  gap: 20px;
-  border-radius: 10px;
+  overflow: auto;
 }
-.card {
-  width: 300px;
-  height: 450px;
-  background-color: #b1d9d5;
-  border-radius: 10px;
+
+.pokemonDescription2 h1 {
+  /*This is styling Description Two H1*/
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.pokemonDescription2 p {
+  /*This is styling Description Two P Tag*/
+  width: 500px;
+  font-size: 23px;
+  padding-right: 15px;
+}
+
+.description2 img {
+  /*This is styling Description Two Image*/
+  width: 500px;
+  height: 300px;
+  border-radius: 20px;
+  padding-left: 15px;
+}
+
+/*This is the optionsSection*/
+
+.optionsSection {
+  /*This is styling the OptionsSection*/
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.options {
+  /*This is styling Options*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  gap: 40px;
+}
+
+.options img {
+  /*This is styling Options Images*/
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.options h4 {
+  /*This is styling Options h4 Elements*/
+  color: #1b4965;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.options p {
+  /*This is styling Options P tags*/
+  color: #1b4965;
+  font-size: 18px;
   cursor: pointer;
 }
 
-.card:hover {
-  border-radius: 1px solid black;
+.options p:hover {
+  /*This is styling Options p tags when hovering over them */
+  color: #000000;
 }
 
-.heroImage img {
-  height: 350px;
+.seeMore h4 {
+  /*This is styling SeeMore section in OptionsSection*/
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.seeMore h4:hover {
+  /*This is styling SeeMore h4 element when hovering over it */
+  color: #000000;
+}
+
+/*This is QandA Section*/
+
+.qaSection {
+  /*This is styling qaSection*/
   width: 100%;
-  border-radius: 10px;
+  margin-top: 90px;
 }
 
-.hero {
+.qaSection h1 {
+  /*This is styling qaSection H1 element*/
+  font-size: 40px;
+  padding-left: 100px;
+  margin-bottom: 30px;
+}
+
+.qa {
+  /*This is styling qa Div*/
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px;
+  gap: 20px;
 }
 
-.hero:hover {
-  color: #023047;
+.question1 {
+  /*This is styling question One*/
+  padding-left: 100px;
 }
 
-.movieStudio {
+.question3 {
+  /*This is styling question Three*/
+  padding-right: 50px;
+}
+
+.question1,
+.question2,
+.question3 {
+  /*This is styling question One, Two and Three*/
+  width: 700px;
+}
+
+.qa h4 {
+  /*This is styling qa H4 element*/
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.qa p {
+  /*This is styling qa P tags*/
+  font-size: 16px;
+  color: #1b4965;
+}
+
+.qa a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px;
+}
+
+.continueReading {
+  /*This is styling ContinueReading Div*/
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.continueReading:hover {
+  /*This is styling ContinueReading Div when we hover over it*/
+  color: #000000;
+}
+
+/*This is Footer Section*/
+
+.footerSection {
+  /*This is styling the Foother Section*/
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgb(160, 155, 155);
+  margin-top: 50px;
+}
+
+.footerIcons {
+  /*This is styling the Icons in Foother Section*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.fa-brands {
+  /*This is styling the Icons in Foother Section*/
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.copyRight p {
+  /*This is styling the Copy Right div in Foother Section*/
+  font-size: 18px;
 }
