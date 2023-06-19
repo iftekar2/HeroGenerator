@@ -334,7 +334,114 @@ function randomPokemon12() {
     });
 }
 randomPokemon12();
-/**-----------------/
+/*-----------------*/
+
+function firstPokemon() {
+  const firstPokemon = document.getElementById("firstPokemonName");
+  const first = document.getElementById("first");
+
+  fetch(`https://pokeapi.co/api/v2/pokemon/25`)
+    .then((response) => response.json())
+    .then((data) => {
+      //This is for the name of the Pokemon
+      const name = data.name;
+      firstPokemon.innerText = name.toUpperCase();
+
+      //This is for the Image of the Pokemon
+      const images = data.sprites.other.dream_world.front_default;
+      first.src = images;
+    });
+}
+firstPokemon();
+
+function secondPokemon() {
+  const secondPokemon = document.getElementById("secondPokemonName");
+  const second = document.getElementById("second");
+
+  fetch(`https://pokeapi.co/api/v2/pokemon/2`)
+    .then((response) => response.json())
+    .then((data) => {
+      //This is for the name of the Pokemon
+      const name = data.name;
+      secondPokemon.innerText = name.toUpperCase();
+
+      //This is for the Image of the Pokemon
+      const images = data.sprites.other.dream_world.front_default;
+      second.src = images;
+    });
+}
+secondPokemon();
+
+function thirdPokemon() {
+  const thirdPokemon = document.getElementById("thirdPokemonName");
+  const third = document.getElementById("three");
+
+  fetch(`https://pokeapi.co/api/v2/pokemon/133`)
+    .then((response) => response.json())
+    .then((data) => {
+      //This is for the name of the Pokemon
+      const name = data.name;
+      thirdPokemon.innerText = name.toUpperCase();
+
+      //This is for the Image of the Pokemon
+      const images = data.sprites.other.dream_world.front_default;
+      third.src = images;
+    });
+}
+thirdPokemon();
+
+function forthPokemon() {
+  const forthPokemon = document.getElementById("forthPokemonName");
+  const forth = document.getElementById("four");
+
+  fetch(`https://pokeapi.co/api/v2/pokemon/143`)
+    .then((response) => response.json())
+    .then((data) => {
+      //This is for the name of the Pokemon
+      const name = data.name;
+      forthPokemon.innerText = name.toUpperCase();
+
+      //This is for the Image of the Pokemon
+      const images = data.sprites.other.dream_world.front_default;
+      forth.src = images;
+    });
+}
+forthPokemon();
+function fifthPokemon() {
+  const fifthPokemon = document.getElementById("fifthPokemonName");
+  const fifth = document.getElementById("five");
+
+  fetch(`https://pokeapi.co/api/v2/pokemon/7`)
+    .then((response) => response.json())
+    .then((data) => {
+      //This is for the name of the Pokemon
+      const name = data.name;
+      fifthPokemon.innerText = name.toUpperCase();
+
+      //This is for the Image of the Pokemon
+      const images = data.sprites.other.dream_world.front_default;
+      fifth.src = images;
+    });
+}
+fifthPokemon();
+
+function sixthPokemon() {
+  const sixthPokemon = document.getElementById("sixthPokemonName");
+  const sixth = document.getElementById("six");
+
+  fetch(`https://pokeapi.co/api/v2/pokemon/6`)
+    .then((response) => response.json())
+    .then((data) => {
+      //This is for the name of the Pokemon
+      const name = data.name;
+      sixthPokemon.innerText = name.toUpperCase();
+
+      //This is for the Image of the Pokemon
+      const images = data.sprites.other.dream_world.front_default;
+      sixth.src = images;
+    });
+}
+sixthPokemon();
 
 /*
 const clickButton = document.getElementById("searchButton");
