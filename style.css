@@ -451,6 +451,13 @@ a {
   margin-top: 10px;
 }
 
+.imageDiv:hover {
+  background-color: #659e9d;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  cursor: pointer;
+}
+
 .imageDiv {
   display: flex;
   justify-content: center;
@@ -466,6 +473,16 @@ a {
 
 .pokemonDetail h4 {
   font-size: 20px;
+  color: #03416b;
+}
+
+.pokemonDetail h4:hover {
+  color: #000000;
+  cursor: pointer;
+}
+
+.pokemonDetail h4::first-letter {
+  text-transform: uppercase;
 }
 
 .abilities {
