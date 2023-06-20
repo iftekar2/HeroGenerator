@@ -1,3 +1,56 @@
+//In here I am getting the randomPokemon Div
+const randomPokemon = document.getElementById("randomPokemon");
+function fetchPokemon() {
+  const promises = []; //I am creating an empty Array of Promises.
+  for (let i = 3; i <= 14; i++) {
+    //I am using the for loop to get 12 pokemons.
+    promises.push(
+      fetch(
+        `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random(i) * 150)}`
+      ).then((response) => response.json())
+    ); //In here every promise that we get we are entering that promise into promises Array.
+  }
+  //Promise.all will let all the promises run at once
+  Promise.all(promises).then((results) => {
+    //This is returning an Object for every Pokemon
+    const pokemon = results.map((data) => ({
+      //In here we are entering the Pokemon data into Pokemon Object
+      name: data.name,
+      id: data.id,
+      image: data.sprites.other.dream_world.front_default,
+      type: data.types.map((type) => type.type.name).join(", "),
+    }));
+    pokemonCard(pokemon);
+  });
+}
+
+//In here I am displaying the Pokemon to the HTML Page
+function pokemonCard(pokemon) {
+  const pokemonHTMLString = pokemon
+    .map(
+      (pokemon) =>
+        `
+        <div class='getPokemon'>
+          <div class='imageDiv'>
+            <img class='pokemonImage' src='${pokemon.image}' />
+          </div>
+          <div class='pokemonDetail'>
+            <h4 class='pokemonName'>${pokemon.name}</h4>
+            <div class='abilities'>
+              <p class='abilityOne'>${pokemon.type.split(", ")[0]}</p>
+              <p class='abilityTwo'>${pokemon.type.split(", ")[1]}</p>
+            </div>
+          </div>
+        </div>
+  `
+    )
+    .join("");
+  randomPokemon.innerHTML = pokemonHTMLString;
+}
+
+fetchPokemon();
+
+/*
 //This Section is for Generating Pokemons that we see in the screen without serching for them.
 function randomPokemon1() {
   const pokemon1Name = document.getElementById("pokemon1Name");
@@ -23,6 +76,10 @@ function randomPokemon1() {
 
       const ability2 = data.abilities[1].ability.name;
       pokemon1Ability2.innerText = ability2;
+
+      //Pokimon ID
+      const pokimonID = data.id;
+      console.log(pokimonID);
     });
 }
 randomPokemon1();
@@ -51,6 +108,9 @@ function randomPokemon2() {
 
       const ability2 = data.abilities[1].ability.name;
       pokemon1Ability2.innerText = ability2;
+      //Pokimon ID
+      const pokimonID = data.id;
+      console.log(pokimonID);
     });
 }
 randomPokemon2();
@@ -334,6 +394,9 @@ function randomPokemon12() {
     });
 }
 randomPokemon12();
+
+*/
+
 /*-----------------*/
 
 function firstPokemon() {
