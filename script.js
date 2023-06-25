@@ -1,28 +1,19 @@
 //In here I am getting the randomPokemon Div
 const randomPokemon = document.getElementById("randomPokemon");
-function fetchPokemon() {
-  const promises = []; //I am creating an empty Array of Promises.
-  for (let i = 3; i <= 14; i++) {
-    //I am using the for loop to get 12 pokemons.
-    promises.push(
-      fetch(
-        `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random(i) * 150)}`
-      ).then((response) => response.json())
-    ); //In here every promise that we get we are entering that promise into promises Array.
-  }
-  //Promise.all will let all the promises run at once
-  Promise.all(promises).then((results) => {
-    //This is returning an Object for every Pokemon
-    const pokemon = results.map((data) => ({
-      //In here we are entering the Pokemon data into Pokemon Object
-      name: data.name,
-      id: data.id,
-      image: data.sprites.other.dream_world.front_default,
-      type: data.types.map((type) => type.type.name).join(", "),
-    }));
-    pokemonCard(pokemon);
-  });
-}
+const fetchPokemon = async () => {
+  const pokemonAPI = `https://pokeapi.co/api/v2/pokemon?limit=20`;
+  const response = await fetch(pokemonAPI); //This will wait untaill all the data come to Response
+  const data = await response.json(); //This will wait untaill all the data come to Data.
+  const pokemon = data.results.map((result, index) => ({
+    name: result.name,
+    id: index + 1,
+    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
+      index + 1
+    }.svg`,
+    apiURL: result.url,
+  }));
+  pokemonCard(pokemon);
+};
 
 //In here I am displaying the Pokemon to the HTML Page
 function pokemonCard(pokemon) {
@@ -30,20 +21,12 @@ function pokemonCard(pokemon) {
     .map(
       (pokemon) =>
         `
-        <div class='getPokemon'>
+        <div class='getPokemon' onclick=(selectPokemon(${pokemon.id}))>
           <div class='imageDiv'>
             <img class='pokemonImage' src='${pokemon.image}' />
           </div>
           <div class='pokemonDetail'>
             <h4 class='pokemonName'>${pokemon.name}</h4>
-            <div class='abilities'>
-              <p class='abilityOne'>${pokemon.type.split(", ")[0]}</p>
-              ${
-                pokemon.type.split(", ")[1]
-                  ? `<p class='abilityTwo'>${pokemon.type.split(", ")[1]}</p>`
-                  : ""
-              }
-            </div>
           </div>
         </div>
   `
@@ -52,9 +35,37 @@ function pokemonCard(pokemon) {
   randomPokemon.innerHTML = pokemonHTMLString;
 }
 
+const selectPokemon = async (id) => {
+  const pokemonAPI = `https://pokeapi.co/api/v2/pokemon/${id}`;
+  const response = await fetch(pokemonAPI); //This will wait untaill all the data come to Response
+  const individualPokemon = await response.json(); //This will wait untaill all the data come to individualPokemon.
+  displayPokemon(individualPokemon);
+};
+
+const displayPokemon = (individualPokemon) => {
+  const ability1 = individualPokemon.abilities[0].ability.name;
+  console.log(ability1);
+  let ability2 = "";
+  if (individualPokemon.abilities.length >= 2) {
+    ability2 = individualPokemon.abilities[1].ability.name;
+    console.log(ability2);
+  }
+};
+
 fetchPokemon();
 
 /*
+<div class='abilities'>
+              <p class='abilityOne'>${pokemon.type.split(", ")[0]}</p>
+              ${
+                pokemon.type.split(", ")[1]
+                  ? `<p class='abilityTwo'>${pokemon.type.split(", ")[1]}</p>`
+                  : ""
+              }
+            </div>
+
+
+
 function randomPokemon1() {
   const pokemonName1 = document.getElementById("pokemonName1");
   const pokemon1Image = document.getElementById("pokemon1Image");
