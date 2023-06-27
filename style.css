@@ -484,7 +484,7 @@ a {
   margin-left: 20px;
 }
 
-.pokemonName:hover {
+.pokemonName h4:hover {
   /*This is styling the Pokemons Names when we hover over them*/
   color: #1a535c;
   cursor: pointer;
@@ -497,14 +497,48 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
+}
+
+.pokemonOuterSection {
+  background-color: #ffe164;
+  width: 330px;
+  height: 475px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.pokemonImageDiv {
+  /*This is styling Pokemons Images Div*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgb(173, 155, 155);
+  margin-bottom: 10px;
 }
 
 .popupPokemonCard {
   /*This is styling Popup Pokemon Card*/
   width: 300px;
-  height: 320px;
-  background-color: #f2f2f2;
+  height: 450px;
+  background-color: #eeeeee;
   border-radius: 10px;
+}
+
+.nameAndHP {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pokemonhp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  gap: 5px;
 }
 
 .pokemonAbilities {
@@ -512,23 +546,99 @@ a {
   font-size: 18px;
   display: flex;
   gap: 20px;
-  margin-top: 8px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.pokemonImageDiv img {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  height: 150px;
+  width: 270px;
+  border: 5px solid #d1cbc4;
+  background-color: #90e0ef;
 }
 
 .ability1 {
+  /*This is styling Pokemon Ability One*/
   background-color: #ff6b6b;
   width: 30%;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
 }
 
 .ability2 {
+  /*This is styling Pokemon Ability Two*/
   background-color: #4ecdc4;
   width: 40%;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
+}
+
+.powerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemonPower {
+  background-color: #f9dcc4;
+  height: 160px;
+  width: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.attack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.attackDiv {
+  background-color: #e63946;
+  width: 200px;
+}
+
+.attack img {
+  width: 35px;
+  height: 35px;
+}
+
+.shield {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.shield img {
+  width: 35px;
+  height: 35px;
+}
+
+.speed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.speed img {
+  width: 35px;
+  height: 35px;
 }
