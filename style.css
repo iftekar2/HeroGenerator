@@ -442,7 +442,7 @@ a {
   gap: 20px;
 }
 
-.getPokemon {
+.pokemonCard {
   width: 300px;
   height: 270px;
   background-color: #f2f2f2;
@@ -464,26 +464,42 @@ a {
   border-top-right-radius: 10px;
 }
 
-.getPokemon img {
+.imageDiv img {
   height: 200px;
   width: 200px;
   margin-bottom: 10px;
   margin-top: 10px;
 }
 
-.pokemonDetail {
-  margin-left: 20px;
-}
-
 .pokemonName {
   text-transform: capitalize;
   font-size: 20px;
   display: inline-block;
+  margin-left: 20px;
 }
 
 .pokemonName:hover {
   color: #1a535c;
   cursor: pointer;
+}
+
+.pokemonName {
+  margin-left: 20px;
+}
+
+.popupSection {
+  width: 100vw;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupPokemon {
+  width: 300px;
+  height: 320px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
 }
 
 .abilities {

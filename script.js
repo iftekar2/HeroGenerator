@@ -48,20 +48,22 @@ const pokemonPopup = (data) => {
     )
     .join("");
   const htmlString = `
-    <div class='popupPokemon'>
-      <div class='buttonDiv'>
-        <button id='closeButton onclick='closePopup()'>Close</button>
+    <section class='popupSection'>
+      <div class='popupPokemon'>
+        <div class='buttonDiv'>
+          <button id='closeButton onclick='closePopup()'>Close</button>
+        </div>
+        <div class='imageDiv'>
+          <img class='pokemonImage' src='${data.sprites.other.dream_world.front_default}' />
+        </div>
+        <div class='pokemonName'>
+          <h4>${data.name}</h4>
+        </div>
+        <div class='pokemonAbilities'>
+          <p>${abilitiesHtml}</p>
+        </div>
       </div>
-      <div class='imageDiv'>
-        <img class='pokemonImage' src='${data.sprites.other.dream_world.front_default}' />
-      </div>
-      <div class='pokemonName'>
-        <h4>${data.name}</h4>
-      </div>
-      <div class='pokemonAbilities'>
-        <p>${abilitiesHtml}</p>
-      </div>
-    </div>
+    </section>
   `;
   randomPokemon.innerHTML = htmlString;
 };
