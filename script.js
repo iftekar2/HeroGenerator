@@ -2,54 +2,68 @@
 const randomPokemon = document.getElementById("randomPokemon");
 const fetchPokemon = async () => {
   const pokemonAPI = `https://pokeapi.co/api/v2/pokemon?limit=20`;
-  const response = await fetch(pokemonAPI); //This will wait untaill all the data come to Response
-  const data = await response.json(); //This will wait untaill all the data come to Data.
+  const response = await fetch(pokemonAPI);
+  const data = await response.json();
   const pokemon = data.results.map((result, index) => ({
-    name: result.name,
+    ...result,
     id: index + 1,
     image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
       index + 1
     }.svg`,
-    apiURL: result.url,
   }));
-  pokemonCard(pokemon);
+  displayPokemon(pokemon);
 };
 
-//In here I am displaying the Pokemon to the HTML Page
-function pokemonCard(pokemon) {
+const displayPokemon = (pokemon) => {
   const pokemonHTMLString = pokemon
     .map(
-      (pokemon) =>
-        `
-        <div class='getPokemon' onclick=(selectPokemon(${pokemon.id}))>
-          <div class='imageDiv'>
-            <img class='pokemonImage' src='${pokemon.image}' />
-          </div>
-          <div class='pokemonDetail'>
-            <h4 class='pokemonName'>${pokemon.name}</h4>
-          </div>
-        </div>
+      (pokemon) => `
+    <div class='pokemonCard' onclick='selectPokemon(${pokemon.id})'>
+      <div class='imageDiv'>
+        <img class='pokemonImage' src='${pokemon.image}' />
+      </div>
+      <div class='pokemonName'>
+        <h4>${pokemon.name}</h4>
+      </div>
+    </div>
   `
     )
     .join("");
   randomPokemon.innerHTML = pokemonHTMLString;
-}
-
-const selectPokemon = async (id) => {
-  const pokemonAPI = `https://pokeapi.co/api/v2/pokemon/${id}`;
-  const response = await fetch(pokemonAPI); //This will wait untaill all the data come to Response
-  const individualPokemon = await response.json(); //This will wait untaill all the data come to individualPokemon.
-  displayPokemon(individualPokemon);
 };
 
-const displayPokemon = (individualPokemon) => {
-  const ability1 = individualPokemon.abilities[0].ability.name;
-  console.log(ability1);
-  let ability2 = "";
-  if (individualPokemon.abilities.length >= 2) {
-    ability2 = individualPokemon.abilities[1].ability.name;
-    console.log(ability2);
-  }
+const selectPokemon = async (id) => {
+  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  pokemonPopup(data);
+};
+
+const pokemonPopup = (data) => {
+  const abilitiesHtml = data.abilities
+    .map(
+      (ability) => `
+  <p class="ability">${ability.ability.name}</p>
+`
+    )
+    .join("");
+  const htmlString = `
+    <div class='popupPokemon'>
+      <div class='buttonDiv'>
+        <button id='closeButton onclick='closePopup()'>Close</button>
+      </div>
+      <div class='imageDiv'>
+        <img class='pokemonImage' src='${data.sprites.other.dream_world.front_default}' />
+      </div>
+      <div class='pokemonName'>
+        <h4>${data.name}</h4>
+      </div>
+      <div class='pokemonAbilities'>
+        <p>${abilitiesHtml}</p>
+      </div>
+    </div>
+  `;
+  randomPokemon.innerHTML = htmlString;
 };
 
 fetchPokemon();
@@ -63,441 +77,6 @@ fetchPokemon();
                   : ""
               }
             </div>
-
-
-
-function randomPokemon1() {
-  const pokemonName1 = document.getElementById("pokemonName1");
-  const pokemon1Image = document.getElementById("pokemon1Image");
-  const pokemon1Ability1 = document.getElementById("pokemon1AbilityOne");
-  const pokemon1Ability2 = document.getElementById("pokemon1AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName1.innerText = name;
-      pokemonName1.href = `example.html?pokemon=${name}`;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon1Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon1Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon1Ability2.innerText = ability2;
-      } else {
-        pokemon1Ability2.style.display = "none"; // Hide the second ability
-      }
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon1();
-
-function randomPokemon2() {
-  const pokemonName2 = document.getElementById("pokemonName2");
-  const pokemon2Image = document.getElementById("pokemon2Image");
-  const pokemon2Ability1 = document.getElementById("pokemon2AbilityOne");
-  const pokemon2Ability2 = document.getElementById("pokemon2AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName2.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon2Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability2 = data.abilities[0].ability.name;
-      pokemon2Ability1.innerText = ability2;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon2Ability2.innerText = ability2;
-      } else {
-        pokemon2Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon2();
-
-function randomPokemon3() {
-  const pokemonName3 = document.getElementById("pokemonName3");
-  const pokemon3Image = document.getElementById("pokemon3Image");
-  const pokemon3Ability1 = document.getElementById("pokemon3AbilityOne");
-  const pokemon3Ability2 = document.getElementById("pokemon3AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName3.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon3Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon3Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon3Ability2.innerText = ability2;
-      } else {
-        pokemon3Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon3();
-
-function randomPokemon4() {
-  const pokemonName4 = document.getElementById("pokemonName4");
-  const pokemon4Image = document.getElementById("pokemon4Image");
-  const pokemon4Ability1 = document.getElementById("pokemon4AbilityOne");
-  const pokemon4Ability2 = document.getElementById("pokemon4AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName4.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon4Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon4Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon4Ability2.innerText = ability2;
-      } else {
-        pokemon4Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon4();
-
-function randomPokemon5() {
-  const pokemonName5 = document.getElementById("pokemonName5");
-  const pokemon5Image = document.getElementById("pokemon5Image");
-  const pokemon5Ability1 = document.getElementById("pokemon5AbilityOne");
-  const pokemon5Ability2 = document.getElementById("pokemon5AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName5.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon5Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon5Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon5Ability2.innerText = ability2;
-      } else {
-        pokemon5Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon5();
-
-function randomPokemon6() {
-  const pokemonName6 = document.getElementById("pokemonName6");
-  const pokemon6Image = document.getElementById("pokemon6Image");
-  const pokemon6Ability1 = document.getElementById("pokemon6AbilityOne");
-  const pokemon6Ability2 = document.getElementById("pokemon6AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName6.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon6Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon6Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon6Ability2.innerText = ability2;
-      } else {
-        pokemon6Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon6();
-
-function randomPokemon7() {
-  const pokemonName7 = document.getElementById("pokemonName7");
-  const pokemon7Image = document.getElementById("pokemon7Image");
-  const pokemon7Ability1 = document.getElementById("pokemon7AbilityOne");
-  const pokemon7Ability2 = document.getElementById("pokemon7AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName7.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon7Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon7Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon7Ability2.innerText = ability2;
-      } else {
-        pokemon7Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon7();
-
-function randomPokemon8() {
-  const pokemonName8 = document.getElementById("pokemonName8");
-  const pokemon8Image = document.getElementById("pokemon8Image");
-  const pokemon8Ability1 = document.getElementById("pokemon8AbilityOne");
-  const pokemon8Ability2 = document.getElementById("pokemon8AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName8.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon8Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon8Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon8Ability2.innerText = ability2;
-      } else {
-        pokemon8Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon8();
-
-function randomPokemon9() {
-  const pokemonName9 = document.getElementById("pokemonName9");
-  const pokemon9Image = document.getElementById("pokemon9Image");
-  const pokemon9Ability1 = document.getElementById("pokemon9AbilityOne");
-  const pokemon9Ability2 = document.getElementById("pokemon9AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName9.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon9Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon9Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon9Ability2.innerText = ability2;
-      } else {
-        pokemon9Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon9();
-
-function randomPokemon10() {
-  const pokemonName10 = document.getElementById("pokemonName10");
-  const pokemon10Image = document.getElementById("pokemon10Image");
-  const pokemon10Ability1 = document.getElementById("pokemon10AbilityOne");
-  const pokemon10Ability2 = document.getElementById("pokemon10AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName10.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon10Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon10Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon10Ability2.innerText = ability2;
-      } else {
-        pokemon10Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon10();
-
-function randomPokemon11() {
-  const pokemonName11 = document.getElementById("pokemonName11");
-  const pokemon11Image = document.getElementById("pokemon11Image");
-  const pokemon11Ability1 = document.getElementById("pokemon11AbilityOne");
-  const pokemon11Ability2 = document.getElementById("pokemon11AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName11.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon11Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon11Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon11Ability2.innerText = ability2;
-      } else {
-        pokemon11Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon11();
-
-function randomPokemon12() {
-  const pokemonName12 = document.getElementById("pokemonName12");
-  const pokemon12Image = document.getElementById("pokemon12Image");
-  const pokemon12Ability1 = document.getElementById("pokemon12AbilityOne");
-  const pokemon12Ability2 = document.getElementById("pokemon12AbilityTwo");
-
-  const randomNumber = Math.floor(Math.random() * 150);
-  fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
-    .then((response) => response.json())
-    .then((data) => {
-      //This is for the name of the Pokemon
-      const name = data.name;
-      pokemonName12.innerText = name;
-
-      //This is for the Image of the Pokemon
-      const images = data.sprites.other.dream_world.front_default;
-      pokemon12Image.src = images;
-
-      //This is for the Ability of the Pokemon
-      const ability1 = data.abilities[0].ability.name;
-      pokemon12Ability1.innerText = ability1;
-
-      if (data.abilities.length >= 2) {
-        const ability2 = data.abilities[1].ability.name;
-        pokemon12Ability2.innerText = ability2;
-      } else {
-        pokemon12Ability2.style.display = "none"; // Hide the second ability
-      }
-
-      //Pokimon ID
-      const pokimonID = data.id;
-      console.log(pokimonID);
-    });
-}
-randomPokemon12();
-*/
 
 /*-----------------*/
 
