@@ -51,6 +51,11 @@ const pokemonPopup = (data) => {
     )
     .join("");
 
+  /*This is removing the Seach Bar when I click on the Pokemon*/
+  const navSection = document.getElementById("navSection");
+  navSection.parentElement.removeChild(navSection);
+  /**/
+
   const htmlString = `
     <section class='popupSection'>
       <div class='popupPokemon'>
@@ -102,6 +107,7 @@ const pokemonPopup = (data) => {
 const closePopup = () => {
   const popupSection = document.querySelector(".popupSection");
   popupSection.parentElement.removeChild(popupSection);
+
   fetchPokemon();
 };
 
