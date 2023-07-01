@@ -555,7 +555,7 @@ a {
   margin-top: 10px;
   height: 150px;
   width: 270px;
-  border: 5px solid #d1cbc4;
+  border: 7px solid #d1cbc4;
   background-color: #90e0ef;
 }
 
@@ -596,6 +596,11 @@ a {
   border-radius: 10px;
 }
 
+.attackDiv {
+  background-color: #e63946;
+  width: 200px;
+}
+
 .attack {
   display: flex;
   justify-content: center;
@@ -603,11 +608,6 @@ a {
   gap: 100px;
   margin-top: 10px;
   font-size: 20px;
-}
-
-.attackDiv {
-  background-color: #e63946;
-  width: 200px;
 }
 
 .attack img {

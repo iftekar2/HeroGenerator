@@ -52,7 +52,7 @@ const pokemonPopup = (data) => {
     <section class='popupSection'>
       <div class='popupPokemon'>
         <div class='buttonDiv'>
-          <button id='closeButton onclick='closePopup()'>Close</button>
+          <button id="closeButton" onclick="closePopup()">Close</button>
         </div>
         <div class='pokemonOuterSection'>
           <div class='popupPokemonCard'>
@@ -65,34 +65,40 @@ const pokemonPopup = (data) => {
                 <h3>${data.stats[0].base_stat}</h3>
               </div>
             </div>
-              <div class='pokemonImageDiv'>
-                <img class='pokemonImage' src='${data.sprites.other.dream_world.front_default}' />
+            <div class='pokemonImageDiv'>
+              <img class='pokemonImage' src='${data.sprites.other.dream_world.front_default}' />
+            </div>
+            <div class='pokemonAbilities'>
+              <p>${abilitiesHtml}</p>
+            </div>
+            <div class='powerDiv'>
+              <div class='pokemonPower'>
+                <div class='attack'>
+                  <img src='./Image/attack.png' />
+                  <h4>${data.stats[1].base_stat}</h4>
+                </div>
+                <div class='shield'>
+                  <img src='./Image/shield.png' />
+                  <h4>${data.stats[2].base_stat}</h4>
+                </div>
+                <div class='speed'>
+                  <img src='./Image/speed.png' />
+                  <h4>${data.stats[5].base_stat}</h4>
+                </div>
               </div>
-              <div class='pokemonAbilities'>
-                <p>${abilitiesHtml}</p>
-              </div>
-              <div class='powerDiv'>
-                <div class='pokemonPower'>
-                  <div class='attack'>
-                    <img src='./Image/attack.png' />
-                    <h4>${data.stats[1].base_stat}</h4>
-                  </div>
-                  <div class='shield'>
-                    <img src='./Image/shield.png' />
-                    <h4>${data.stats[2].base_stat}</h4>
-                  </div>
-                  <div class='speed'>
-                    <img src='./Image/speed.png' />
-                    <h4>${data.stats[5].base_stat}</h4>
-                  </div>
-                <div>
-              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   `;
   randomPokemon.innerHTML = htmlString;
+};
+
+const closePopup = () => {
+  const popupSection = document.querySelector(".popupSection");
+  popupSection.parentElement.removeChild(popupSection);
+  fetchPokemon();
 };
 
 fetchPokemon();
