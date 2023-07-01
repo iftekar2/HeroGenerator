@@ -528,12 +528,14 @@ a {
 }
 
 .nameAndHP {
+  /*This is styling Name and HP Div*/
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .pokemonhp {
+  /*This is styling Pokemon HP*/
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -542,6 +544,7 @@ a {
 }
 
 .pokemonAbilities {
+  /*This is styling Pokemon Abilities Div*/
   text-transform: capitalize;
   font-size: 18px;
   display: flex;
@@ -551,6 +554,7 @@ a {
 }
 
 .pokemonImageDiv img {
+  /*This is styling Pokemon Image*/
   margin-bottom: 10px;
   margin-top: 10px;
   height: 150px;
@@ -582,12 +586,14 @@ a {
 }
 
 .powerDiv {
+  /*This is stling Pokemon Power Div*/
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .pokemonPower {
+  /*This is styling Pokemon Power*/
   background-color: #f9dcc4;
   height: 160px;
   width: 250px;
@@ -597,11 +603,13 @@ a {
 }
 
 .attackDiv {
+  /*This is styling Pokemon Attack Div*/
   background-color: #e63946;
   width: 200px;
 }
 
 .attack {
+  /*This is styling Pokemon Attack*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -611,11 +619,13 @@ a {
 }
 
 .attack img {
+  /*This is styling Pokemon Attack Image*/
   width: 35px;
   height: 35px;
 }
 
 .shield {
+  /*This is styling Pokemon Shield*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -625,11 +635,13 @@ a {
 }
 
 .shield img {
+  /*This is styling Pokemon Shield Image*/
   width: 35px;
   height: 35px;
 }
 
 .speed {
+  /*This is styling Pokemon Speed */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -639,6 +651,7 @@ a {
 }
 
 .speed img {
+  /*This is styling Pokemon Speed Image*/
   width: 35px;
   height: 35px;
 }
