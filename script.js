@@ -14,6 +14,7 @@ const fetchPokemon = async () => {
   displayPokemon(pokemon);
 };
 
+//This is Displaying 20 Pokemons to the screen
 const displayPokemon = (pokemon) => {
   const pokemonHTMLString = pokemon
     .map(
@@ -32,6 +33,7 @@ const displayPokemon = (pokemon) => {
   randomPokemon.innerHTML = pokemonHTMLString;
 };
 
+//This is fetching the data and passing the ID to pokemonPopup Function
 const selectPokemon = async (id) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
   const response = await fetch(url);
@@ -39,6 +41,7 @@ const selectPokemon = async (id) => {
   pokemonPopup(data);
 };
 
+//This is Displaying the Indevidual Pokemon
 const pokemonPopup = (data) => {
   const abilitiesHtml = data.abilities
     .map(
@@ -95,6 +98,7 @@ const pokemonPopup = (data) => {
   randomPokemon.innerHTML = htmlString;
 };
 
+//This is Closing Indevidual Pokemon Popup
 const closePopup = () => {
   const popupSection = document.querySelector(".popupSection");
   popupSection.parentElement.removeChild(popupSection);
@@ -103,23 +107,7 @@ const closePopup = () => {
 
 fetchPokemon();
 
-/*
-<div>
-            <h3>${data.stats[0].stat.name} ${data.stats[0].base_stat}</h3>
-          </div>
-
-
-<div class='abilities'>
-              <p class='abilityOne'>${pokemon.type.split(", ")[0]}</p>
-              ${
-                pokemon.type.split(", ")[1]
-                  ? `<p class='abilityTwo'>${pokemon.type.split(", ")[1]}</p>`
-                  : ""
-              }
-            </div>
-
-/*-----------------*/
-
+//This is getting the First Pokemon in the Main Page
 function firstPokemon() {
   const firstPokemon = document.getElementById("firstPokemonName");
   const first = document.getElementById("first");
@@ -138,6 +126,7 @@ function firstPokemon() {
 }
 firstPokemon();
 
+//This is getting the Second Pokemon in the Main Page
 function secondPokemon() {
   const secondPokemon = document.getElementById("secondPokemonName");
   const second = document.getElementById("second");
@@ -156,6 +145,7 @@ function secondPokemon() {
 }
 secondPokemon();
 
+//This is getting the Third Pokemon in the Main Page
 function thirdPokemon() {
   const thirdPokemon = document.getElementById("thirdPokemonName");
   const third = document.getElementById("three");
@@ -174,6 +164,7 @@ function thirdPokemon() {
 }
 thirdPokemon();
 
+//This is getting the Forth Pokemon in the Main Page
 function forthPokemon() {
   const forthPokemon = document.getElementById("forthPokemonName");
   const forth = document.getElementById("four");
@@ -191,6 +182,8 @@ function forthPokemon() {
     });
 }
 forthPokemon();
+
+//This is getting the Fifth Pokemon in the Main Page
 function fifthPokemon() {
   const fifthPokemon = document.getElementById("fifthPokemonName");
   const fifth = document.getElementById("five");
@@ -209,6 +202,7 @@ function fifthPokemon() {
 }
 fifthPokemon();
 
+//This is getting the Sixth Pokemon in the Main Page
 function sixthPokemon() {
   const sixthPokemon = document.getElementById("sixthPokemonName");
   const sixth = document.getElementById("six");
