@@ -441,6 +441,8 @@ a {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .pokemonCard {
@@ -493,7 +495,7 @@ a {
 .popupSection {
   /*This is styling the Popup Pokemon Section*/
   width: 100vw;
-  height: 500px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -654,4 +656,22 @@ a {
   /*This is styling Pokemon Speed Image*/
   width: 35px;
   height: 35px;
+}
+
+.closeButton {
+  width: 80px;
+  height: 30px;
+  float: right;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-bottom: 10px;
+  background-color: #000;
+  color: #fff;
+}
+
+.closeButton:hover {
+  background-color: #ffc9b9;
+  color: #000;
+  cursor: pointer;
 }

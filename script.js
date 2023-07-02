@@ -60,7 +60,7 @@ const pokemonPopup = (data) => {
     <section class='popupSection'>
       <div class='popupPokemon'>
         <div class='buttonDiv'>
-          <button id="closeButton" onclick="closePopup()">Close</button>
+          <button class='closeButton' id="closeButton" onclick="closePopup()">Close</button>
         </div>
         <div class='pokemonOuterSection'>
           <div class='popupPokemonCard'>
